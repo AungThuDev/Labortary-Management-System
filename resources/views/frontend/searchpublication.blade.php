@@ -1,0 +1,55 @@
+@extends('layouts.page')
+@section('public','active')
+@section('white','text-white')
+@section('link','Publications')
+@section('head','Publications')
+@section('content')
+<!--publications Section-->
+<section class="event">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-2">
+                <a href="{{route('publication')}}" class="btn btn-outline-primary" style="border-radius: 50%;"><i class="fas fa-arrow-left"></i></a>
+            </div>
+            <div class="col-8">
+                <form action="{{route('search-pub')}}" class="form-inline" method="GET">
+
+                    <div class="input-group mb-2 mr-sm-2">
+
+                        <input type="text" class="form-control" id="search" name="search" placeholder="search publications...">
+                        <div class="input-group-prepend">
+                            <!-- <div class="input-group-text">@</div> -->
+                            <button class="btn btn-success"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <h2>Publications</h2>
+
+        <div class="publications-container">
+            @forelse($publications as $pub)
+            <article class="row shadow p-3">
+                <div class="col-12 col-lg-9 order-last order-lg-first mt-2 mt-lg-0">
+                    <h5 class="fw-bold publication-title">{{$pub->name}} </h5>
+                    <p class="text-secondary">{{$pub->created_at}} | {{$pub->journal}} </p>
+                    <p class="pt-3">
+                        @foreach($pub->authors as $author)
+                        <a href="{{$author->author_link}}">{{$author->author_name}}</a> |
+                        @endforeach
+                    </p>
+                </div>
+                <div class="col-12 col-lg-3 order-first order-lg-last d-flex justify-content-center">
+                    <img class="pubication-image" src="{{asset('storage/publicationimages/'.$pub->image)}}" alt="">
+                </div>
+            </article>
+            @empty
+            <h5 class="text-center">No Publications found....</h5>
+            @endforelse
+        </div>
+
+    </div>
+</section>
+<!--End Publications Section-->
+@endsection
