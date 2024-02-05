@@ -47,37 +47,22 @@
               @foreach($principle->experimentations as $ex)
               <p><i class="fab fa-researchgate"></i>&nbsp;{{$ex->description}}</p>    
               @endforeach
-              <h5>Awards</h5>
+            <h5>Awards</h5>
               @foreach($principle->awards as $a)
               <p><i class="fas fa-award"></i>&nbsp;{{$a->description}}</p>    
               @endforeach
-              @foreach($principle->associations as $asso)
-              @if($asso->description===null)
-              <p></p>
-              @else
-              <h5>Associations</h5>
-              <p><i class="fas fa-network-wired"></i>&nbsp;{{$asso->description}}</p>   
-              @endif 
+            <h5>Associations</h5>
+              @foreach($principle->associations as $a)
+              <p><i class="fas fa-users"></i>&nbsp;{{$a->description}}</p>    
               @endforeach
-
-              @foreach($principle->talks as $talk)
-              @if($talk->description===null)
-              <p></p>
-              @else
-              <h5>Invited Talks</h5>
-              <p><i class="fas fa-comments"></i>&nbsp;{{$talk->description}}</p>
-              @endif    
+            <h5>Services</h5>
+              @foreach($principle->services as $a)
+              <p><i class="fab fa-servicestack"></i>&nbsp;{{$a->description}}</p>    
               @endforeach
-
-              @foreach($principle->services as $service)
-              @if($service->description===null)
-              <p></p>
-              @else
-              <h5>Services</h5>
-              <p><i class="fab fa-servicestack"></i>&nbsp;{{$service->description}}</p>    
-              @endif
+            <h5>Invited Talks</h5>
+              @foreach($principle->talks as $a)
+              <p><i class="fas fa-file-powerpoint"></i>&nbsp;{{$a->description}}</p>    
               @endforeach
-              
         </div>
         </div>
     </div>

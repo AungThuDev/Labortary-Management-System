@@ -48,20 +48,34 @@
           @enderror
         </div>
         <div class="form-group">
-          <label for="research"><i class="fab fa-researchgate"></i>&nbsp;Research</label>
+          <label for="research"><i class="fab fa-researchgate"></i>&nbsp;Education</label>
+          
           <div class="col-md-6">
-            <div id="educationInputs">
-              @foreach($member->memberedu as $res)
-              <input id="education[0]" type="text" class="form-control @error('education.*') is-invalid @enderror" name="education[]" autocomplete="education" value="{{$res->description}}"><br>
-              @endforeach
-              @error('education.*')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
+    <div id="educationInputs">
+        @foreach($member->memberedu as $key => $res)
+            <div class="education-input mb-3">
+              <div class="row">
+                <div class="col-8">
+                <input type="text" class="form-control @error('education.*') is-invalid @enderror" name="education[]" autocomplete="education" value="{{$res->description}}">
+                </div>
+                <div class="col-2">
+                @if ($key > 0)
+                    <button type="button" class="btn btn-warning removeEducationInput" style="border-radius: 50%;"><i class="fas fa-times"></i></button>
+                @endif
+                </div>
+              </div>
+                
+                
             </div>
-            <button type="button" id="addEducationInput" class="btn btn-success"><i class="fas fa-plus-circle"></i>&nbsp;Add Education</button>
-          </div>
+        @endforeach
+        @error('education.*')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+    <button type="button" id="addEducationInput" class="btn btn-success"><i class="fas fa-plus-circle"></i>&nbsp;Add Education</button>
+</div>
         </div>
         <div class="form-group">
           <label for="about">About</label>
@@ -125,18 +139,54 @@
 @endsection
 
 @section('scripts')
+
 <script>
-  document.getElementById('addEducationInput').addEventListener('click', function() {
-    var input = document.createElement('input');
-    input.type = 'text';
-    input.className = 'form-control';
-    input.name = 'education[]';
-    input.required = true;
-    input.autocomplete = 'education';
+    document.getElementById('addEducationInput').addEventListener('click', function() {
+        var inputContainer = document.getElementById('educationInputs');
+        var inputCount = inputContainer.children.length;
 
-    // Retrieve old values for research
-    document.getElementById('educationInputs').appendChild(input);
+        var div = document.createElement('div');
+        div.className = 'education-input mb-3';
+        
+        var row = document.createElement('div');
+        row.className = 'row';
+        
+        var col1 = document.createElement('div');
+        col1.className = 'col-8';
+        
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'form-control';
+        input.name = 'education[]';
+        input.required = true;
+        input.autocomplete = 'education';
+        
+        col1.appendChild(input);
+        
+        var col2 = document.createElement('div');
+        col2.className = 'col-2';
+        
+        var removeButton = document.createElement('button');
+        removeButton.type = 'button';
+        removeButton.className = 'btn btn-warning removeEducationInput' + (inputCount > 0 ? '' : ' d-none'); // Hide the "X" button for the first input field
+        removeButton.style.borderRadius = '50%';
+        removeButton.innerHTML = '<i class="fas fa-times"></i>';
+        
+        col2.appendChild(removeButton);
+        row.appendChild(col1);
+        row.appendChild(col2);
+        div.appendChild(row);
+        
+        inputContainer.appendChild(div);
+    });
 
-  });
+    // Event delegation for dynamically added remove buttons
+    document.getElementById('educationInputs').addEventListener('click', function(e) {
+        if (e.target.classList.contains('removeEducationInput') || e.target.closest('.removeEducationInput')) {
+            e.target.closest('.education-input').remove();
+        }
+    });
 </script>
+
+
 @endsection

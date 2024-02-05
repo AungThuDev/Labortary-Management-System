@@ -75,69 +75,68 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="qualification"><i class="fas fa-graduation-cap"></i>&nbsp;Qualifications</label>
-
-                            <div id="qualifiedInputs">
-                                <input id="qualifications[0]" type="text" class="form-control @error('qualifications.*') is-invalid @enderror" name="qualifications[]" autocomplete="qualifications" value="{{ old('qualifications.0') }}"><br>
-                                @error('qualifications.*')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                            <label for="qualification"><i class="fas fa-user-graduate"></i>&nbsp;Qualification</label>
+                            <div class="col-md-12">
+                                <div id="qualifiedInputs">
+                                    <input type="text" class="form-control @error('qualifications.*') is-invalid @enderror" name="qualifications[]" autocomplete="qualifications" value="{{ old('qualifications.0') }}"><br>
+                                    @error('qualifications.*')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <button type="button" class="btn btn-success addQualifiedInput"><i class="fas fa-plus-circle"></i>&nbsp;Add Qualification</button>
                             </div>
-                            
-                            <button type="button" id="addQualifiedInput" class="btn btn-success"><i class="fas fa-plus-circle"></i>&nbsp;Add Qualification</button>
-
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="Experimentations"><i class="fab fa-researchgate"></i>&nbsp;Experimentations</label>
-
-                            <div id="experimentInputs">
-                                <input id="experimentations[0]" type="text" class="form-control @error('experimentations.*') is-invalid @enderror" name="experimentations[]" autocomplete="experimentations" value="{{ old('experimentations.0') }}"><br>
-                                @error('experimentations.*')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                            <label for="experimentation"><i class="fab fa-researchgate"></i>&nbsp;Experimentation</label>
+                            <div class="col-md-12">
+                                <div id="experimentInputs">
+                                    <input type="text" class="form-control @error('experimentations.*') is-invalid @enderror" name="experimentations[]" autocomplete="experimentations" value="{{ old('experimentations.0') }}"><br>
+                                    @error('experimentations.*')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <button type="button" class="btn btn-success addExperimentInput"><i class="fas fa-plus-circle"></i>&nbsp;Add Experimentation</button>
                             </div>
-                            <button type="button" id="addExperimentInput" class="btn btn-success"><i class="fas fa-plus-circle"></i>&nbsp;Add Experimentations</button>
-
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="awards"><i class="fas fa-award"></i>&nbsp;Awards</label>
-
-                            <div id="awardInputs">
-                                <input id="awards[0]" type="text" class="form-control @error('awards.*') is-invalid @enderror" name="awards[]" autocomplete="awards" value="{{ old('awards.0') }}"><br>
-                                @error('awards.*')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                            <label for="award"><i class="fas fa-award"></i>&nbsp;Awards</label>
+                            <div class="col-md-12">
+                                <div id="awardInputs">
+                                    <input type="text" class="form-control @error('awards.*') is-invalid @enderror" name="awards[]" autocomplete="awards" value="{{ old('awards.0') }}"><br>
+                                    @error('awards.*')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <button type="button" class="btn btn-success addAwardInput"><i class="fas fa-plus-circle"></i>&nbsp;Add Award</button>
                             </div>
-                            <button type="button" id="addAwardInput" class="btn btn-success"><i class="fas fa-plus-circle"></i>&nbsp;Add Awards</button>
-
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="associations"><i class="fas fa-sitemap"></i>&nbsp;Associations</label>
-
-                            <div id="associationInputs">
-                                <input id="associations[0]" type="text" class="form-control @error('associations.*') is-invalid @enderror" name="associations[]" autocomplete="associations" value="{{ old('associations.0') }}"><br>
-                                @error('associations.*')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                            <label for="associations"><i class="fas fa-network-wired"></i>&nbsp;Associations</label>
+                            <div class="col-md-12">
+                                <div id="associateInputs">
+                                    <input type="text" class="form-control @error('associations.*') is-invalid @enderror" name="associations[]" autocomplete="associations" value="{{ old('associations.0') }}"><br>
+                                    @error('associations.*')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <button type="button" class="btn btn-success addAssociateInput"><i class="fas fa-plus-circle"></i>&nbsp;Add Association</button>
                             </div>
-                            <button type="button" id="addAssociationInput" class="btn btn-success"><i class="fas fa-plus-circle"></i>&nbsp;Add Associations</button>
-
                         </div>
                     </div>
                 </div>
@@ -145,39 +144,36 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label for="services"><i class="fab fa-servicestack"></i>&nbsp;Services</label>
-
-                            <div id="serviceInputs">
-                                <input id="services[0]" type="text" class="form-control @error('services.*') is-invalid @enderror" name="services[]" autocomplete="services" value="{{ old('services.0') }}"><br>
-                                @error('services.*')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                            <div class="col-md-12">
+                                <div id="serviceInputs">
+                                    <input type="text" class="form-control @error('services.*') is-invalid @enderror" name="services[]" autocomplete="services" value="{{ old('services.0') }}"><br>
+                                    @error('services.*')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <button type="button" class="btn btn-success addServiceInput"><i class="fas fa-plus-circle"></i>&nbsp;Add Service</button>
                             </div>
-                            <button type="button" id="addServiceInput" class="btn btn-success"><i class="fas fa-plus-circle"></i>&nbsp;Add Services</button>
-
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="talks"><i class="fas fa-tasks"></i>&nbsp;Invited Talks</label>
-
-                            <div id="taklInputs">
-                                <input id="talks[0]" type="text" class="form-control @error('talks.*') is-invalid @enderror" name="talks[]" autocomplete="talks" value="{{ old('talks.0') }}"><br>
-                                @error('talks.*')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                            <label for="talks"><i class="fas fa-file-powerpoint"></i>&nbsp;Invited Talks</label>
+                            <div class="col-md-12">
+                                <div id="talkInputs">
+                                    <input type="text" class="form-control @error('talks.*') is-invalid @enderror" name="talks[]" autocomplete="services" value="{{ old('talks.0') }}"><br>
+                                    @error('talks.*')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <button type="button" class="btn btn-success addTalkInput"><i class="fas fa-plus-circle"></i>&nbsp;Add Invited Talks</button>
                             </div>
-                            <button type="button" id="addTalkInput" class="btn btn-success"><i class="fas fa-plus-circle"></i>&nbsp;AddInvitedTalks</button>
-
                         </div>
                     </div>
                 </div>
-
-
-
                 <div class="form-group">
                     <label for="image"><i class="fas fa-images"></i>&nbsp;Image</label><br>
                     <input id="image" type="file" name="image" class="">
@@ -200,66 +196,293 @@
 
 @section('scripts')
 <script>
-    
-    document.getElementById('addQualifiedInput').addEventListener('click', function() {
-        var input = document.createElement('input');
-        input.type = 'text';
-        input.className = 'form-control';
-        input.name = 'qualifications[]';
-        input.required = true;
-        input.autocomplete = 'qualifications';
-        document.getElementById('qualifiedInputs').appendChild(input);
+    //Qualifications
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.addQualifiedInput').addEventListener('click', function() {
+            var inputContainer = document.getElementById('qualifiedInputs');
+
+            var inputCount = inputContainer.children.length;
+
+            var row = document.createElement('div');
+            row.className = 'row qualified-row';
+
+            var col1 = document.createElement('div');
+            col1.className = 'col-11';
+
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'form-control mb-3';
+            input.name = 'qualifications[]';
+            input.required = true;
+            input.autocomplete = 'qualifications';
+
+            col1.appendChild(input);
+
+            var col2 = document.createElement('div');
+            col2.className = 'col-1';
+
+            if (inputCount > 0) {
+                var removeButton = document.createElement('button');
+                removeButton.type = 'button';
+                removeButton.className = 'btn btn-warning removeQualifiedInput';
+                removeButton.style.borderRadius = '50%';
+                removeButton.innerHTML = '<i class="fas fa-times"></i>';
+                col2.appendChild(removeButton);
+            }
+
+            row.appendChild(col1);
+            row.appendChild(col2);
+
+            inputContainer.appendChild(row);
+        });
+
+        // Event delegation for dynamically added remove buttons
+        document.getElementById('qualifiedInputs').addEventListener('click', function(e) {
+            console.log(e);
+            if (e.target.classList.contains('removeQualifiedInput') || e.target.closest('.removeQualifiedInput')) {
+                e.target.closest('.qualified-row').remove();
+            }
+        });
     });
+    //Experimentations
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.addExperimentInput').addEventListener('click', function() {
+            var inputContainer = document.getElementById('experimentInputs');
 
-    document.getElementById('addExperimentInput').addEventListener('click', function() {
-        var input = document.createElement('input');
-        input.type = 'text';
-        input.className = 'form-control';
-        input.name = 'experimentations[]';
-        input.required = true;
-        input.autocomplete = 'experimentations';
-        document.getElementById('experimentInputs').appendChild(input);
+            var inputCount = inputContainer.children.length;
+
+            var row = document.createElement('div');
+            row.className = 'row experiment-row';
+
+            var col1 = document.createElement('div');
+            col1.className = 'col-11';
+
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'form-control mb-3';
+            input.name = 'experimentations[]';
+            input.required = true;
+            input.autocomplete = 'experimentations';
+
+            col1.appendChild(input);
+
+            var col2 = document.createElement('div');
+            col2.className = 'col-1';
+
+            if (inputCount > 0) {
+                var removeButton = document.createElement('button');
+                removeButton.type = 'button';
+                removeButton.className = 'btn btn-warning removeExperimentInput';
+                removeButton.style.borderRadius = '50%';
+                removeButton.innerHTML = '<i class="fas fa-times"></i>';
+                col2.appendChild(removeButton);
+            }
+
+            row.appendChild(col1);
+            row.appendChild(col2);
+
+            inputContainer.appendChild(row);
+        });
+
+        // Event delegation for dynamically added remove buttons
+        document.getElementById('experimentInputs').addEventListener('click', function(e) {
+            console.log(e);
+            if (e.target.classList.contains('removeExperimentInput') || e.target.closest('.removeExperimentInput')) {
+                e.target.closest('.experiment-row').remove();
+            }
+        });
     });
+    //Awards
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.addAwardInput').addEventListener('click', function() {
+            var inputContainer = document.getElementById('awardInputs');
 
-    document.getElementById('addAwardInput').addEventListener('click', function() {
-        var input = document.createElement('input');
-        input.type = 'text';
-        input.className = 'form-control';
-        input.name = 'awards[]';
-        input.required = true;
-        input.autocomplete = 'awards';
-        document.getElementById('awardInputs').appendChild(input);
+            var inputCount = inputContainer.children.length;
+
+            var row = document.createElement('div');
+            row.className = 'row award-row';
+
+            var col1 = document.createElement('div');
+            col1.className = 'col-11';
+
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'form-control mb-3';
+            input.name = 'awards[]';
+            input.required = true;
+            input.autocomplete = 'awards';
+
+            col1.appendChild(input);
+
+            var col2 = document.createElement('div');
+            col2.className = 'col-1';
+
+            if (inputCount > 0) {
+                var removeButton = document.createElement('button');
+                removeButton.type = 'button';
+                removeButton.className = 'btn btn-warning removeAwardInput';
+                removeButton.style.borderRadius = '50%';
+                removeButton.innerHTML = '<i class="fas fa-times"></i>';
+                col2.appendChild(removeButton);
+            }
+
+            row.appendChild(col1);
+            row.appendChild(col2);
+
+            inputContainer.appendChild(row);
+        });
+
+        // Event delegation for dynamically added remove buttons
+        document.getElementById('awardInputs').addEventListener('click', function(e) {
+            console.log(e);
+            if (e.target.classList.contains('removeAwardInput') || e.target.closest('.removeAwardInput')) {
+                e.target.closest('.award-row').remove();
+            }
+        });
     });
+    //Associations
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.addAssociateInput').addEventListener('click', function() {
+            var inputContainer = document.getElementById('associateInputs');
 
-    document.getElementById('addAssociationInput').addEventListener('click', function() {
-        var input = document.createElement('input');
-        input.type = 'text';
-        input.className = 'form-control';
-        input.name = 'associations[]';
-        // input.required = true;
-        input.autocomplete = 'associations';
-        document.getElementById('associationInputs').appendChild(input);
+            var inputCount = inputContainer.children.length;
+
+            var row = document.createElement('div');
+            row.className = 'row associate-row';
+
+            var col1 = document.createElement('div');
+            col1.className = 'col-11';
+
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'form-control mb-3';
+            input.name = 'associations[]';
+            input.required = true;
+            input.autocomplete = 'associations';
+
+            col1.appendChild(input);
+
+            var col2 = document.createElement('div');
+            col2.className = 'col-1';
+
+            if (inputCount > 0) {
+                var removeButton = document.createElement('button');
+                removeButton.type = 'button';
+                removeButton.className = 'btn btn-warning removeAssociateInput';
+                removeButton.style.borderRadius = '50%';
+                removeButton.innerHTML = '<i class="fas fa-times"></i>';
+                col2.appendChild(removeButton);
+            }
+
+            row.appendChild(col1);
+            row.appendChild(col2);
+
+            inputContainer.appendChild(row);
+        });
+
+        // Event delegation for dynamically added remove buttons
+        document.getElementById('associateInputs').addEventListener('click', function(e) {
+            console.log(e);
+            if (e.target.classList.contains('removeAssociateInput') || e.target.closest('.removeAssociateInput')) {
+                e.target.closest('.associate-row').remove();
+            }
+        });
     });
+    //Services
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.addServiceInput').addEventListener('click', function() {
+            var inputContainer = document.getElementById('serviceInputs');
 
-    document.getElementById('addServiceInput').addEventListener('click', function() {
-        var input = document.createElement('input');
-        input.type = 'text';
-        input.className = 'form-control';
-        input.name = 'services[]';
-        // input.required = true;
-        input.autocomplete = 'services';
-        document.getElementById('serviceInputs').appendChild(input);
+            var inputCount = inputContainer.children.length;
+
+            var row = document.createElement('div');
+            row.className = 'row service-row';
+
+            var col1 = document.createElement('div');
+            col1.className = 'col-11';
+
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'form-control mb-3';
+            input.name = 'services[]';
+            input.required = true;
+            input.autocomplete = 'services';
+
+            col1.appendChild(input);
+
+            var col2 = document.createElement('div');
+            col2.className = 'col-1';
+
+            if (inputCount > 0) {
+                var removeButton = document.createElement('button');
+                removeButton.type = 'button';
+                removeButton.className = 'btn btn-warning removeServiceInput';
+                removeButton.style.borderRadius = '50%';
+                removeButton.innerHTML = '<i class="fas fa-times"></i>';
+                col2.appendChild(removeButton);
+            }
+
+            row.appendChild(col1);
+            row.appendChild(col2);
+
+            inputContainer.appendChild(row);
+        });
+
+        // Event delegation for dynamically added remove buttons
+        document.getElementById('serviceInputs').addEventListener('click', function(e) {
+            console.log(e);
+            if (e.target.classList.contains('removeServiceInput') || e.target.closest('.removeServiceInput')) {
+                e.target.closest('.service-row').remove();
+            }
+        });
     });
+    //Talks
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.addTalkInput').addEventListener('click', function() {
+            var inputContainer = document.getElementById('talkInputs');
 
-    document.getElementById('addTalkInput').addEventListener('click', function() {
-        var input = document.createElement('input');
-        input.type = 'text';
-        input.className = 'form-control';
-        input.name = 'talks[]';
-        // input.required = true;
-        input.autocomplete = 'talks';
+            var inputCount = inputContainer.children.length;
 
-        document.getElementById('taklInputs').appendChild(input);
+            var row = document.createElement('div');
+            row.className = 'row talk-row';
+
+            var col1 = document.createElement('div');
+            col1.className = 'col-11';
+
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'form-control mb-3';
+            input.name = 'talks[]';
+            input.required = true;
+            input.autocomplete = 'talks';
+
+            col1.appendChild(input);
+
+            var col2 = document.createElement('div');
+            col2.className = 'col-1';
+
+            if (inputCount > 0) {
+                var removeButton = document.createElement('button');
+                removeButton.type = 'button';
+                removeButton.className = 'btn btn-warning removeTalkInput';
+                removeButton.style.borderRadius = '50%';
+                removeButton.innerHTML = '<i class="fas fa-times"></i>';
+                col2.appendChild(removeButton);
+            }
+
+            row.appendChild(col1);
+            row.appendChild(col2);
+
+            inputContainer.appendChild(row);
+        });
+
+        // Event delegation for dynamically added remove buttons
+        document.getElementById('talkInputs').addEventListener('click', function(e) {
+            console.log(e);
+            if (e.target.classList.contains('removeTalkInput') || e.target.closest('.removeTalkInput')) {
+                e.target.closest('.talk-row').remove();
+            }
+        });
     });
 </script>
 @endsection

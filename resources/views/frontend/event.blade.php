@@ -24,9 +24,9 @@
             </div>
             <div class="col-2"></div>
         </div>
-        <div class="row">
+        <div class="row" id="news">
             <div class="col-lg-8 col-md-12 col-sm-12">
-                <div class="row">
+                <div class="row mb-3">
                     @forelse($events as $event)
                     <div class="col-lg-12">
                         <div class="card mt-5" style="width: 100%">
@@ -50,7 +50,10 @@
                     @endforelse
                 </div>
                 <!--pagination-->
-                {{$events->links()}}
+                <div class="d-flex justify-content-center">
+                    {{$events->links()}}
+                </div>
+                    
                 <!--End pagination-->
             </div>
             <div class="col-lg-4 mt-5">

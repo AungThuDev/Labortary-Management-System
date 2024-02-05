@@ -32,7 +32,7 @@ class HomePageController extends Controller
     {
         $member_status = Config::get('members.member_status');
         $status = array_flip($member_status);
-        $members = Member::with('research')->where('status', 1)->paginate(9);
+        $members = Member::with('research')->where('status', 1)->paginate(9)->fragment('members');
         $formermembers = Member::with('research')->where('status', 2)->take(4)->get();
         return view('frontend.members', compact('members', 'formermembers'));
     }
@@ -68,22 +68,22 @@ class HomePageController extends Controller
     }
     public function publication()
     {
-        $publications = Publication::latest()->paginate(10);
+        $publications = Publication::latest()->paginate(5)->fragment('pub');
         return view('frontend.publication', compact('publications'));
     }
     public function lab()
     {
-        $projects = Project::latest()->paginate(8);
+        $projects = Project::latest()->paginate(8)->fragment('lab');
         return view('frontend.lab', compact('projects'));
     }
     public function subject()
     {
-        $subjects = Subject::latest()->paginate(10);
+        $subjects = Subject::latest()->paginate(5)->fragment('sub');
         return view('frontend.subject', compact('subjects'));
     }
     public function event()
     {
-        $events = Media::latest()->paginate(6);
+        $events = Media::latest()->paginate(6)->fragment('news');
         $medias = Media::latest()->take(4)->get();
         return view('frontend.event', compact('events', 'medias'));
     }
@@ -174,8 +174,8 @@ class HomePageController extends Controller
             } else {
                 if ($this->isOnline()) {
                     $mail_data = [
-                        'recipient' => 'aungthuhtut7791@gmail.com',
-                        'recipientName' => "Aung Thu Htut",
+                        'recipient' => 'kosawlinoo@gmail.com',
+                        'recipientName' => "Dr.Saw Lin Oo",
                         'fromEmail' => $request->email,
                         'fromName' => $request->name,
                         'phone' => $request->phone,

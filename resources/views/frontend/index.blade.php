@@ -5,7 +5,7 @@
 <!--Start Advisor Section-->
 <section class="about">
   <div class="container">
-    <h2 class="about-heading">Beyond the Boundary</h2>
+    <h2 class="about-heading">About Biophysics Lab</h2>
     <div class="container">
       <div class="para">
         <p>The Innovative Biophysics Lab at the University of Yangon, under the guidance of Dr. Saw Lin Oo, is dedicated to advancing scientific research with a primary focus on Cancer Cell Destruction Projects. These projects encompass various methodologies, including drug delivery, photothermal and photodynamic therapy, and magnetic nanoparticles induced combination therapy. The overarching objective of this initiative is to unravel the intricate mechanisms governing cancer cell behavior, developing innovative strategies to selectively target cancer markers, and ultimately destroy these malignant cells.</p>
@@ -134,6 +134,9 @@
               </div>
             </div>
           </div>
+          
+
+          @if(count($principle->associations) > 0)
           <div class="accordion-item">
             <h3 class="accordion-header" id="headingFour">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
@@ -143,11 +146,14 @@
             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 @foreach($principle->associations as $asso)
-                <strong>{{$asso->description}}</strong><br>
+                <strong><i class="fas fa-sitemap" style="color: #25aca3;font-size:18px;"></i>&nbsp;&nbsp;&nbsp;{{$asso->description}}</strong><br>
                 @endforeach
               </div>
             </div>
           </div>
+          @endif
+          
+          @if(count($principle->services) > 0)
           <div class="accordion-item">
             <h3 class="accordion-header" id="headingFive">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
@@ -157,11 +163,13 @@
             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 @foreach($principle->services as $ser)
-                <strong>{{$ser->description}}</strong><br>
+                <strong><i class="fab fa-servicestack" style="color: #25aca3;font-size:18px;"></i>&nbsp;&nbsp;&nbsp;{{$ser->description}}</strong><br>
                 @endforeach
               </div>
             </div>
           </div>
+          @endif
+          @if(count($principle->talks) > 0)
           <div class="accordion-item">
             <h3 class="accordion-header" id="headingSix">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
@@ -171,15 +179,13 @@
             <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 @foreach($principle->talks as $talk)
-                <strong>{{$talk->description}}</strong><br>
+                <strong><i class="fas fa-file-powerpoint" style="color: #25aca3;font-size:18px;"></i>&nbsp;&nbsp;&nbsp;{{$talk->description}}</strong><br>
                 @endforeach
               </div>
             </div>
           </div>
+          @endif
         </div>
-
-
-
       </div>
     </div>
   </div>

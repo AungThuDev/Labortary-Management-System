@@ -5,7 +5,7 @@
 @section('head','Publications')
 @section('content')
 <!--publications Section-->
-<section class="event">
+<section class="event" id="pub">
         <div class="container">
             <div class="row mt-5">
                 <div class="col-2"></div>
@@ -48,7 +48,9 @@
                 @endforelse
             </div>
             <!--pagination-->
-            {{$publications->links()}}
+            <div class="d-flex justify-content-center">
+                {{$publications->links()}}
+            </div>
             <!--End pagination-->
         </div>
     </section>

@@ -5,7 +5,7 @@
 @section('head','Active Members')
 @section('content')
     <!--Current Members Section-->
-    <section class="members">
+    <section class="members" id="members">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -47,7 +47,10 @@
                                 @endforelse
                             </div>
                             <!--pagination-->
-                            {{$members->links()}}
+                            <div class="d-flex justify-content-center">
+                                {{$members->links()}}
+                            </div>
+                            
                             <!--End pagination-->
                         </div>
                         <div class="col-lg-4">
@@ -85,10 +88,10 @@
                                                 <hr>
                                             </div>
                                             @forelse($formermembers as $member)
-                                            <div class="row">
+                                            <div class="row mb-2">
                                                 
                                                 <div class="col-4">
-                                                    <img src="{{asset('storage/memberimages/'.$member->image)}}" width="60" height="70"
+                                                    <img src="{{asset('storage/memberimages/'.$member->image)}}" width="80" height="80"
                                                         alt="former-members">
                                                 </div>
                                                 <div class="col-8">
@@ -96,7 +99,7 @@
                                                     <p style="font-size: 10px;color: #21262b;font-weight: 900;">{{$member->position}}</p>
                                                     <p
                                                         style="font-size: 10px;color: #21262b;font-weight: 900;margin-top: -10px;">
-                                                        Material Science</p>
+                                                        Biophysics Lab</p>
                                                 </div>
                                             </div>
                                             @empty

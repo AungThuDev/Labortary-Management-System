@@ -45,7 +45,9 @@
                             @endforelse
                         </div>
                         <!--pagination-->
-                        {{$formermembers->links()}}
+                        <div class="d-flex justify-content-center">
+                            {{$formermembers->links()}}
+                        </div>
                         <!--End pagination-->
                     </div>
                     <div class="col-lg-4">
@@ -81,16 +83,16 @@
                                             <hr>
                                         </div>
                                         @forelse($members as $member)
-                                        <div class="row">
+                                        <div class="row mb-2">
 
                                             <div class="col-4">
-                                                <img src="{{asset('storage/memberimages/'.$member->image)}}" width="60" height="70" alt="active-members">
+                                                <img src="{{asset('storage/memberimages/'.$member->image)}}" width="80" height="80" alt="active-members">
                                             </div>
                                             <div class="col-8">
                                                 <h6>{{$member->name}}</h6>
                                                 <p style="font-size: 10px;color: #21262b;font-weight: 900;">{{$member->position}}</p>
                                                 <p style="font-size: 10px;color: #21262b;font-weight: 900;margin-top: -10px;">
-                                                    Material Science</p>
+                                                    Biophysics Lab</p>
                                             </div>
                                         </div>
                                         @empty

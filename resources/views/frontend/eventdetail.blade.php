@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card mt-5">
-                            <img src="{{asset('assets/image/img/uni.jpg')}}" class="card-img-top" height="100%" alt="...">
+                            <img src="{{asset('storage/newsimages/'.$event->image)}}" class="card-img-top" height="100%" alt="...">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <p class="card-text"><i class="fas fa-calendar-week"></i>&nbsp;{{$event->created_at->diffForHumans()}}

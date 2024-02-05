@@ -41,7 +41,7 @@
                     </p>
                 </div>
                 <div class="col-12 col-lg-3 order-first order-lg-last d-flex justify-content-center">
-                    <img class="pubication-image" src="{{asset('storage/publicationimages/'.$pub->image)}}" alt="">
+                        <img class="pubication-image" src="{{asset('assets/image/img/research-paper.jpg')}}" alt="">
                 </div>
             </article>
             @empty

@@ -62,7 +62,7 @@
         <p>Work Hours : Mon-Fri : 09:00 - 17:00</p>
       </div>
       <div class="d-none d-lg-flex justify-content-between gap-3">
-        <a href=""><i class="fa-brands fa-facebook" style="color: #316FF6;"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100036281794669"><i class="fa-brands fa-facebook" style="color: #316FF6;"></i></a>
         <a href=""><i class="fa-brands fa-youtube" style="color:#CD201F;"></i></a>
         <a href=""><i class="fa-brands fa-linkedin" style="color: #0077b5;"></i></a>
       </div>
@@ -113,7 +113,7 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="assets/image/banner/4.png" class="d-block w-100" alt="...">
+        <img src="assets/image/banner/4-min.png" class="d-block w-100" alt="...">
         <div class="carousel-caption">
           <h5 class="animate__animated animate__bounceInRight" style="animation-delay:1s;">Innovative</h5>
           <p class="animate__animated animate__bounceInLeft" style="animation-delay:2s;">Biophysics Lab
@@ -123,7 +123,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img src="assets/image/banner/2.png" class="d-block w-100" alt="...">
+        <img src="assets/image/banner/2-min.png" class="d-block w-100" alt="...">
         <div class="carousel-caption">
           <h5 class="animate__animated animate__bounceInRight" style="animation-delay:1s;">Innovative</h5>
           <p class="animate__animated animate__bounceInLeft" style="animation-delay:2s;">Biophysics Lab
@@ -133,7 +133,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img src="assets/image/banner/lab.jpg" class="d-block w-100" alt="...">
+        <img src="assets/image/banner/lab-min.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption">
           <h5 class="animate__animated animate__bounceInRight" style="animation-delay:1s;">Innovative</h5>
           <p class="animate__animated animate__bounceInLeft" style="animation-delay:2s;">Biophysics Lab

@@ -39,9 +39,9 @@
                     <p>Work Hours : Mon-Fri : 09:00 - 17:00</p>
                 </div>
                 <div class="d-none d-lg-flex justify-content-between gap-3">
-                    <a href=""><i class="fa-brands fa-facebook" style="color: #316FF6;"></i></a>
-                    <a href=""><i class="fa-brands fa-youtube" style="color:#CD201F;"></i></a>
-                    <a href=""><i class="fa-brands fa-linkedin" style="color: #0077b5;"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100036281794669"><i class="fa-brands fa-facebook" style="color: #316FF6;"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube" style="color:#CD201F;"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin" style="color: #0077b5;"></i></a>
                 </div>
             </div>
             <nav id="nav-bar" class="navbar navbar-expand-lg bg-body-tranparent">
