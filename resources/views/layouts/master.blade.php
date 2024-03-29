@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="csrf-token" content="{{csrf_token()}}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BioPhysicsLab</title>
+  <title>Innovative Biophysics Lab - Yangon University</title>
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('dist/img/logo.png')}}">
 
   <!-- Google Font: Source Sans Pro -->
@@ -69,7 +69,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 

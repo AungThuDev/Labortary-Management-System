@@ -22,7 +22,7 @@
 
                             <div class="col-lg-12 card-advisor">
                                 <div class="card img-card">
-                                    <img src="{{asset('storage/memberimages/'.$member->image)}}" style="width:300px;height:300px;" class="card-img-top img-top" alt="...">
+                                    <img src="{{asset('storage/memberimages/'.$member->image)}}" style="width:300px;height:300px;" class="card-img-top img-top" alt="Active Members Photos of Innovative Lab">
                                     <hr>
                                     <div class="card-body">
                                         <div class="row">

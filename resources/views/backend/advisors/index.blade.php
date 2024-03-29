@@ -31,6 +31,8 @@
                     <th>Name</th>
                     <th>Role</th>
                     <th>Link</th>
+                    <th>Department</th>
+                    <th>University</th>
                     <th>Image</th>
                     <th>Action</th>
                 </tr>
@@ -69,6 +71,12 @@
                 },
                 {
                     "data" : "link"
+                },
+                {
+                  "data" : "department"
+                },
+                {
+                  "data" : "university"
                 },
                 {
                     "data" : "image",

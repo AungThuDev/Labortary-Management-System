@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Biophysics-Lab</title>
+  <meta name="description" content="xperience the forefront of scientific inquiry at Yangon University's Biophysics Lab. Our innovative facility combines cutting-edge technologies and interdisciplinary expertise to unravel the secrets of biological systems. From advanced spectroscopy to computational modeling, we're dedicated to pushing the boundaries of biophysics research. Join us on a journey of discovery as we explore the intricate connections between physics and biology, making groundbreaking contributions to the scientific landscape. Welcome to a hub of innovation and exploration in the heart of Myanmar.">
+  <meta name="keywords" content="Biophysics Research Yangon,Yangon University Biophysics Lab,Biophysics Studies Myanmar">
+  <title>Innovative Biophysics Lab - Yangon University</title>
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('dist/img/logo.png')}}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
   <!--Animate Css-->
-  <link rel="stylesheet" href="{{asset('assets/css/animate_css/animate_css/animate.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  @yield('animate')
 
   <!--Owl Carousel-->
-  <link rel="stylesheet" href="{{asset('assets/css/OwlCarousel/dist/assets/owl.carousel.min.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/css/OwlCarousel/dist/assets/owl.theme.default.min.css')}}">
-
+  @yield('owl')
   <!--Google Font-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +54,7 @@
   <header class="fixed-top">
     <div id="address-bar" class="d-none d-md-flex justify-content-between align-items-center text-white px-md-4 py-md-2" style="background-color: rgba(0, 0, 0, 0.9);">
       <div class="contact-bar d-none d-md-flex justify-content-between gap-5" style="font-size: 14px;padding-top: 5px;padding-bottom: 0px;">
-
+      
         <p><a href="tel:09-43053573" style="color: #fff;font-size:15px;">Phone : +(95) 943053573</a></p>
         <p><a href="mailto:kosawlinoo@gmail.com" style="color: #fff;font-size:15px;">Email : kosawlinoo@gmail.com</a></p>
         <p>Work Hours : Mon-Fri : 09:00 - 17:00</p>
@@ -69,7 +67,7 @@
     </div>
     <nav id="nav-bar" class="navbar navbar-expand-lg bg-body-tranparent">
       <div class="container-fluid">
-        <img src="assets/logo/logo1.png" alt="Lab-logo">
+        <img src="assets/logo/logo1.png" alt="Innovative-Lab Logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -113,7 +111,7 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="assets/image/banner/4-min.png" class="d-block w-100" alt="...">
+        <img src="assets/image/banner/4-min.png" class="d-block w-100" alt="First Banner image of Innovative Lab">
         <div class="carousel-caption">
           <h5 class="animate__animated animate__bounceInRight" style="animation-delay:1s;">Innovative</h5>
           <p class="animate__animated animate__bounceInLeft" style="animation-delay:2s;">Biophysics Lab
@@ -123,7 +121,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img src="assets/image/banner/2-min.png" class="d-block w-100" alt="...">
+        <img src="assets/image/banner/2-min.png" class="d-block w-100" alt="Second Banner image of Innovative Lab">
         <div class="carousel-caption">
           <h5 class="animate__animated animate__bounceInRight" style="animation-delay:1s;">Innovative</h5>
           <p class="animate__animated animate__bounceInLeft" style="animation-delay:2s;">Biophysics Lab
@@ -133,7 +131,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img src="assets/image/banner/lab-min.jpg" class="d-block w-100" alt="...">
+        <img src="assets/image/banner/lab-min.jpg" class="d-block w-100" alt="Third Banner image of Innovative Lab">
         <div class="carousel-caption">
           <h5 class="animate__animated animate__bounceInRight" style="animation-delay:1s;">Innovative</h5>
           <p class="animate__animated animate__bounceInLeft" style="animation-delay:2s;">Biophysics Lab
@@ -172,7 +170,7 @@
         </div>
         <div class="col-sm-12 col-md-12 col-lg-4">
           <div class="d-flex justify-content-center">
-            <img src="assets/logo/logo2.png" alt="">
+            <img src="assets/logo/logo2.png" alt="Phyiscs Department Logo">
           </div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-4 mt-sm-4 mt-md-2 mt-lg-0">
@@ -202,7 +200,7 @@
       </div>
       <div class="container-fluid" style="background-color: #21262b ;">
         <div class="d-flex justify-content-center p-3 text-white">
-          Copyright &copy; 2023 All rights reserved!
+        Design and Copyright &copy; by Innovative-Lab 2023 All rights reserved!
         </div>
       </div>
     </div>

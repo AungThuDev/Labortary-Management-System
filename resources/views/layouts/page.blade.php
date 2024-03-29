@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biophysics-Lab</title>
+    <title>Innovative Biophysics Lab - Yangon University</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('dist/img/logo.png')}}">
     <!--CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{asset('assets/css/animate_css/animate_css/animate.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.min.css')}}">
     <!--Google Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,7 +46,7 @@
             </div>
             <nav id="nav-bar" class="navbar navbar-expand-lg bg-body-tranparent">
                 <div class="container-fluid">
-                    <img src="{{asset('assets/logo/logo1.png')}}" alt="Lab-logo">
+                    <img src="{{asset('assets/logo/logo1.png')}}" alt="Innovative-Lab Logo">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -103,7 +103,7 @@
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <div class="d-flex justify-content-center">
-                        <img src="{{asset('assets/logo/logo2.png')}}" alt="">
+                        <img src="{{asset('assets/logo/logo2.png')}}" alt="Physics Department Logo">
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4 mt-sm-4 mt-md-2 mt-lg-0">
@@ -132,7 +132,7 @@
             </div>
             <div class="container-fluid" style="background-color: #21262b ;">
                 <div class="d-flex justify-content-center p-3 text-white">
-                    Design and Copyright &copy; by GrimReaper 2023 All rights reserved!
+                    Design and Copyright &copy; by Innovative-Lab 2023 All rights reserved!
                 </div>
             </div>
         </div>

@@ -12,7 +12,7 @@
             <div class="col-sm-12 col-md-6 col-lg-3 mb-sm-3 mb-md-3 mb-lg-4" id="res-card">
                 <div class="d-flex justify-content-center">
                     <div class="card mb-3" style="width: 23rem;">
-                        <img class="card-img-top" src="{{asset('storage/projectimages/'.$project->image)}}" width="200" height="180" alt="Labortary Photo">
+                        <img class="card-img-top" src="{{asset('storage/projectimages/'.$project->image)}}" width="200" height="180" alt="Labortary Photos of Innovative Lab">
                         <div class="card-body">
                           <h6 class="card-title" style="font-size: 15px;">{{$project->name}}</h6>
                         </div>

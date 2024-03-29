@@ -54,6 +54,24 @@
                 @enderror
             </div>
             <div class="form-group">
+              <label for="department">Department</label>
+              <input type="text" name="department" class="form-control @error('department') is-invalid @enderror" value="{{$advisor->department}}">
+              @error('department')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+          </div>
+          <div class="form-group">
+            <label for="uinversity">University</label>
+            <input type="text" name="university" class="form-control @error('university') is-invalid @enderror" value="{{$advisor->university}}">
+            @error('uinversity')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+        </div>
+            <div class="form-group">
                 <label for="image"><i class="fas fa-images"></i>&nbsp;Image</label><br>
                 <img src="{{ asset('storage/advisorimages/' . $advisor->image) }}" alt="News Image" width="150" height="150"><br><br>
                 <input type="file" name="image">

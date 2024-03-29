@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 
-use Log;
+use Illuminate\Support\Facades\Log;
 use App\Models\Media;
 use App\Models\Member;
 use App\Models\Advisor;
@@ -40,7 +40,7 @@ class HomePageController extends Controller
     {
         $member_status = Config::get('members.member_status');
         $status = array_flip($member_status);
-        $formermembers = Member::with('research')->where('status', 2)->paginate(9);
+        $formermembers = Member::with('research')->where('status', 2)->paginate(9)->fragment('former');
         $members = Member::with('research')->where('status', 1)->take(4)->get();
         return view('frontend.formermembers', compact('formermembers', 'members'));
     }
@@ -163,10 +163,8 @@ class HomePageController extends Controller
                 'phone' => 'required|numeric',
                 'subject' => 'required',
                 'message' => 'required',
-                'g-recaptcha-response' => 'required'
+                // 'g-recaptcha-response' => 'required'
             ]);
-
-
 
             if ($validator->fails()) {
                 // If validation fails, return JSON response with errors
@@ -174,7 +172,7 @@ class HomePageController extends Controller
             } else {
                 if ($this->isOnline()) {
                     $mail_data = [
-                        'recipient' => 'kosawlinoo@gmail.com',
+                        'recipient' => 'htutthu1991@gmail.com',
                         'recipientName' => "Dr.Saw Lin Oo",
                         'fromEmail' => $request->email,
                         'fromName' => $request->name,
@@ -194,7 +192,7 @@ class HomePageController extends Controller
             }
         } catch (\Exception $e) {
             Log::error('Exception: ' . $e->getMessage());
-            return response()->json(['status' => 0, 'msg' => 'Internal Server Error']);
+            return response()->json(['status' => 0, 'msg' =>  $e->getMessage()]);
         }
     }
     public function isOnline($site = "https://www.youtube.com/")

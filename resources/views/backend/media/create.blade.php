@@ -46,12 +46,33 @@
           @enderror
         </div>
         <div class="form-group">
-          <label for="image"><i class="fas fa-images"></i>&nbsp;Image</label><br>
+          <label for="image"><i class="fas fa-images"></i>&nbsp;Cover Image</label><br>
           <input type="file" name="image" id="image" class="" value="{{old('image')}}">
           @error('image')
             <p class="text-danger">{{ $message }}</p>
           @enderror
         </div>
+        
+        <div class="row">
+          <div class="col-6">
+          <div class="form-group">
+              <label for="images"><i class="fas fa-images"></i>&nbsp;Images</label>
+              <div class="col-md-12">
+                  <div id="imageInputs">
+                    <input type="file" class="@error('images.*') is-invalid @enderror" name="images[]" autocomplete="images" multiple value="{{ old('images.0') }}"><br>
+
+                      @error('images.*')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                      @enderror
+                  </div>
+                  <button type="button" class="btn btn-success addImageInput mt-3"><i class="fas fa-plus-circle"></i>&nbsp;Add NewImage</button>
+              </div>
+          </div>
+          </div>
+        </div>
+      
         <div class="d-flex justify-content-center mb-5">
           <button class="btn btn-outline-success"><i class="fas fa-newspaper"></i>&nbsp;Create News</button>
         </div>
@@ -62,4 +83,107 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+@endsection
+
+{{-- @section('scripts')
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('.addImageInput').addEventListener('click', function() {
+      var inputContainer = document.getElementById('imageInputs');
+
+      var inputCount = inputContainer.children.length;
+
+      var row = document.createElement('div');
+      row.className = 'row image-row';
+
+      var col1 = document.createElement('div');
+      col1.className = 'col-11';
+
+      var input = document.createElement('input');
+      input.type = 'file';
+      input.className = 'mt-3';
+      input.name = 'photos[]';
+      input.required = true;
+      input.autocomplete = 'photos';
+
+      col1.appendChild(input);
+
+      var col2 = document.createElement('div');
+      col2.className = 'col-1';
+
+      if (inputCount > 0) {
+          var removeButton = document.createElement('button');
+          removeButton.type = 'button';
+          removeButton.className = 'btn btn-warning removeImageInput';
+          removeButton.style.borderRadius = '50%';
+          removeButton.innerHTML = '<i class="fas fa-times"></i>';
+          col2.appendChild(removeButton);
+      }
+
+      row.appendChild(col1);
+      row.appendChild(col2);
+
+      inputContainer.appendChild(row);
+  });
+
+  // Event delegation for dynamically added remove buttons
+  document.getElementById('imageInputs').addEventListener('click', function(e) {
+      console.log(e);
+      if (e.target.classList.contains('removeImageInput') || e.target.closest('.removeImageInput')) {
+          e.target.closest('.image-row').remove();
+      }
+  });
+});
+</script>
+@endsection --}}
+
+@section('scripts')
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.addImageInput').addEventListener('click', function() {
+      var inputContainer = document.getElementById('imageInputs');
+
+      var row = document.createElement('div');
+      row.className = 'row image-row';
+
+      var col1 = document.createElement('div');
+      col1.className = 'col-6';
+
+      var input = document.createElement('input');
+      input.type = 'file';
+      input.className = 'mt-3';
+      input.name = 'images[]';
+      input.required = true;
+      input.autocomplete = 'off'; // disable autocomplete to prevent browser from auto-filling the file input
+
+      col1.appendChild(input);
+
+      var col2 = document.createElement('div');
+      col2.className = 'col-6';
+
+      var removeButton = document.createElement('button');
+      removeButton.type = 'button';
+      removeButton.className = 'btn btn-warning removeImageInput';
+      removeButton.style.borderRadius = '50%'; // Adjust margin for better alignment
+      removeButton.innerHTML = '<i class="fas fa-times"></i>';
+      removeButton.addEventListener('click', function() {
+        row.remove(); // Remove the entire row when remove button is clicked
+      });
+
+      col2.appendChild(removeButton);
+
+      row.appendChild(col1);
+      row.appendChild(col2);
+
+      inputContainer.appendChild(row);
+    });
+
+    // Event delegation for dynamically added remove buttons
+    document.getElementById('imageInputs').addEventListener('click', function(e) {
+      if (e.target.classList.contains('removeImageInput')) {
+        e.target.closest('.image-row').remove();
+      }
+    });
+  });
+</script>
 @endsection

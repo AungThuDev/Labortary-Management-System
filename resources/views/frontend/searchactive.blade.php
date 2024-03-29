@@ -22,7 +22,7 @@
                                 @forelse($members as $member)
                                 <div class="col-lg-4 col-md-6 col-sm-12 card-advisor">
                                     <div class="card img-card" style="height:100%">
-                                        <img src="{{asset('storage/memberimages/'.$member->image)}}" class="card-img-top img-top" alt="...">
+                                        <img src="{{asset('storage/memberimages/'.$member->image)}}" class="card-img-top img-top" alt="Active Members of Innovative Lab">
                                         <div class="card-body">
                                             <h5 class="card-title" style="text-align: center;font-size:20px;"><a href="">
                                                     {{$member->name}}</a></h5>
@@ -92,7 +92,7 @@
                                                 
                                                 <div class="col-4">
                                                     <img src="{{asset('storage/memberimages/'.$member->image)}}" width="60" height="70"
-                                                        alt="former-members">
+                                                        alt="Former Members of Innovative Lab">
                                                 </div>
                                                 <div class="col-8">
                                                     <h6>{{$member->name}}</h6>

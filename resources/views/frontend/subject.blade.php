@@ -32,7 +32,7 @@
                 <h3><a href="">{{$subject->course_name}}</a></h3>
                 <div class="row mt-3">
                     <div class="col-12 col-lg-3">
-                        <img class="subject-image" src="{{asset('storage/subjectimages/'.$subject->image)}}" alt="subject image">
+                        <img class="subject-image" src="{{asset('storage/subjectimages/'.$subject->image)}}" alt="Subject Taught in Innovative Lab">
                     </div>
                     <div class="col-12 col-lg-9 mt-4 mt-lg-0">
                         <div class="row mb-4">

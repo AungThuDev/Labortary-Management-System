@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Advisor extends Model
 {
     use HasFactory;
-    protected $fillable = ["name","role","link",'image'];
+    protected $fillable = ["name","role","link","department","university",'image'];
 }

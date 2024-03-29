@@ -36,8 +36,8 @@
                 @forelse($researches as $research)
                 <div class="col-lg-3 col-md-6 col-sm-12 mt-3">
                     <div class="card">
-                        <div class="img1"><img src="{{asset('storage/research/'.$research->image)}}" alt="Research Images"></div>
-                        <div class="img2"><img src="{{asset('storage/memberimages/'.$research->member->image)}}" alt=""></div>
+                        <div class="img1"><img src="{{asset('storage/research/'.$research->image)}}" alt="Research Photos of Innovative Lab"></div>
+                        <div class="img2"><img src="{{asset('storage/memberimages/'.$research->member->image)}}" alt="Member Photos of Innovative Lab"></div>
                         <div class="main-text">
                             <h3>{{$research->name}}</h3>
                             <p>Candidate : {{$research->member->name}}</p>

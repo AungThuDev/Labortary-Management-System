@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Carbon\Carbon;
+use App\Models\Image;
 use App\Models\Media;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Yajra\DataTables\DataTables;
-use Carbon\Carbon;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class MediaController extends Controller
@@ -42,23 +43,39 @@ class MediaController extends Controller
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'title'=>'required',
-            'description'=>'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif',
-        ]);
+    $request->validate([
+        'title' => 'required',
+        'description' => 'required',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif',
+        'images.*' => 'required|image', // Validation for each image in the array
+    ]);
 
-        $imagePath = $request->file('image')->store('public/newsimages');
-        $imageName = basename($imagePath);
+    $imagePath = $request->file('image')->store('public/newsimages');
+    $imageName = basename($imagePath);
 
-        Media::create([
-            'title' => $request['title'],
-            'description' => $request['description'],
-            'image' => $imageName,
-        ]);
+    $media = Media::create([
+        'title' => $request['title'],
+        'description' => $request['description'],
+        'image' => $imageName,
+    ]);
 
-        return redirect('/admin/news')->with('create','News Created Successfully');
+    
+    if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $image) {
+            
+            $imagePath = $image->store('public/newsimages');
+            $imageName = basename($imagePath);
+            Image::create([
+                'media_id' => $media->id,
+                'photo' => $imageName, // Corrected column name
+            ]);
+        }
     }
+
+    return redirect('/admin/news')->with('create', 'News Created Successfully');
+    }
+    
+
     public function show($id)
     {
         $media = Media::FindOrFail($id);
@@ -71,6 +88,7 @@ class MediaController extends Controller
     }
     public function update(Request $request,$id)
     {
+        
         $media = Media::findOrFail($id);
         $request->validate([
             "title" => "required",
@@ -87,6 +105,44 @@ class MediaController extends Controller
 
             $media->image = $imageName;
         }
+        if($request->file('images')){
+            foreach($request->file('images') as $image){
+                $imagePath = $image->store('public/newsimages');
+                $imageName = basename($imagePath);
+                Image::create([
+                    'media_id' => $media->id,
+                    'photo' => $imageName, // Corrected column name
+                ]);
+            }
+        }
+        $imagesArray = $request->except('title', 'description', 'image', '_token', '_method','images','deleted_images');
+        //dd($imagesArray);
+
+        if (count($imagesArray)>0) {
+            
+            foreach ($imagesArray as $id => $image) {
+                $i = Image::findOrFail($id);  
+                $imagePath = Storage::delete('public/newsimages/'.$i->photo);
+                $i->update([
+                    'photo' => basename($image->store('public/newsimages'))
+                ]);
+            }
+        }
+        
+        if($request['deleted_images']){
+            
+            foreach($request['deleted_images'] as $delete){
+                $deleted_image = Image::findOrFail($delete);
+
+                
+                $d = Storage::delete('public/newsimages/'.$deleted_image['photo']);
+                $deleted_image->delete();
+                
+            }
+        }
+
+
+        
         $media->save();
         return redirect('/admin/news')->with('update','News Updated Successfully');
     }

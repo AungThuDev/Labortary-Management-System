@@ -26,6 +26,13 @@
       <div class="container-fluid">
         <div class="card">
             <img src="{{ asset('storage/newsimages/' . $media->image) }}" class="card-image-top" alt="news photo" width="1389" height="750">
+            <div class="row mt-3">
+              @foreach($media->images as $image)
+              <div class="col-4">
+                <img src="{{ asset('storage/newsimages/'. $image->photo) }}" alt="Image" width="463" height="300">
+              </div>
+              @endforeach
+            </div>
             <div class="card-body">
                 <h3 class="card-title">{{$media->title}}</h3>
                 <p class="card-text">{!!nl2br($media->description)!!}</p>

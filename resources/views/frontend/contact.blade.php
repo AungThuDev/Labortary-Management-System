@@ -95,11 +95,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group mt-3">
+                    <!-- <div class="form-group mt-3">
                         {!!NoCaptcha::renderJs()!!}
                         {!!NoCaptcha::display()!!}
                         <span class="text-danger error-text g-recaptcha-response_error"></span>
-                    </div>
+                    </div> -->
                     
                     <!-- Add a hidden input field to store scroll position -->
                     <input type="hidden" name="scroll_position" id="scrollPosition" value="">
@@ -152,7 +152,7 @@
                             });
                         }else{
                             $("#myForm")[0].reset();
-                            window.location.reload();
+                            <!-- window.location.reload(); -->
                             alert(data.msg);
                             
                         }

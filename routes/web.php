@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('layouts.master');
-// });
+
 
 Route::get('/',function(){
     return view('welcome');
@@ -23,9 +21,9 @@ Route::get('/',function(){
 
 Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('admin')->name('admin.')->group(function()
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function()
 {
     //For Dashboard
     Route::get('/',[App\Http\Controllers\Backend\DashboardController::class,'index'])->name('home');

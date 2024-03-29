@@ -53,6 +53,24 @@
                 @enderror
             </div>
             <div class="form-group">
+              <label for="department">Department</label>
+              <input type="text" name="department" class="form-control @error('department') is-invalid @enderror" value="{{ old('department') }}">
+              @error('department')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+          </div>
+          <div class="form-group">
+            <label for="university">University</label>
+            <input type="text" name="university" class="form-control @error('university') is-invalid @enderror" value="{{ old('university') }}">
+            @error('university')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+        </div>
+            <div class="form-group">
                 <label for="image"><i class="fas fa-images"></i>&nbsp;Image</label><br>
                 <input type="file" name="image" class="@error('image') is-invalid @enderror">
                 @error('image')

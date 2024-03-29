@@ -15,15 +15,12 @@ class AdvisorController extends Controller
         if($request->ajax()){
             $advisor = Advisor::query();
             return DataTables::of($advisor)
-            ->editColumn('image',function($each){
-                
+            ->editColumn('image',function($each){     
                     return '<img src="'.asset("storage/advisorimages/" . $each->image).'" class="img-thumbnail" width="100" height="100"/>';
-                
             })
             ->addColumn('action',function($each){
                 $edit_icon = '<a href="'.route('admin.advisors.edit',$each->id).'" class="btn btn-outline-warning" style="margin-right:10px;"><i class="fas fa-user-edit"></i>&nbsp;Edit</a>';
                 $delete_icon = '<a href="" class="btn btn-outline-danger delete" data-id = "'.$each->id.'"><i class="fas fa-trash-alt"></i>&nbsp;Delete</a>';
-
                 return '<div class="action-icon">' . $edit_icon . $delete_icon . '</div>';
             })
             ->rawColumns(['image','action'])
@@ -37,10 +34,13 @@ class AdvisorController extends Controller
     }
     public function store(Request $request)
     {
+        
         $request->validate([
             "name" => "required|string|max:255",
             "role" => "required|string|max:255",
             "link" => "required",
+            "department" => "required",
+            "university" => "required",
             "image" => "required|image|mimes:jpeg,png,jpg,gif",
         ]);
 
@@ -51,6 +51,8 @@ class AdvisorController extends Controller
             'name' => $request['name'],
             'role' => $request['role'],
             'link' => $request['link'],
+            'department' => $request['department'],
+            'university' => $request['university'],
             'image' => $imageName,
         ]);
 
@@ -68,10 +70,14 @@ class AdvisorController extends Controller
             "name" => "required|string|max:255",
             "role" => "required|string|max:255",
             "link" => "required",
+            "department" => "required",
+            "university" => "required",
         ]);
         $advisor->name = $request->name;
         $advisor->role = $request->role;
         $advisor->link = $request->link;
+        $advisor->department = $request->department;
+        $advisor->university = $request->university;
         if($request->file('image')){
             if($advisor->image){
                 Storage::delete('public/advisorimages/'.$advisor->image);

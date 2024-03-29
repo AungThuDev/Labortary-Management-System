@@ -1,6 +1,14 @@
 @extends('layouts.home')
 @section('home','active')
 @section('white','text-white')
+@section('animate')
+<link rel="stylesheet" href="{{asset('assets/css/animate_css/animate_css/animate.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+@endsection
+@section('owl')
+<link rel="stylesheet" href="{{asset('assets/css/OwlCarousel/dist/assets/owl.carousel.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/OwlCarousel/dist/assets/owl.theme.default.min.css')}}">
+@endsection
 @section('content')
 <!--Start Advisor Section-->
 <section class="about">
@@ -9,23 +17,13 @@
     <div class="container">
       <div class="para">
         <p>The Innovative Biophysics Lab at the University of Yangon, under the guidance of Dr. Saw Lin Oo, is dedicated to advancing scientific research with a primary focus on Cancer Cell Destruction Projects. These projects encompass various methodologies, including drug delivery, photothermal and photodynamic therapy, and magnetic nanoparticles induced combination therapy. The overarching objective of this initiative is to unravel the intricate mechanisms governing cancer cell behavior, developing innovative strategies to selectively target cancer markers, and ultimately destroy these malignant cells.</p>
-
- 
-
-<p>Dr. Saw Lin Oo, leveraging his expertise in biophysics, spearheads this pioneering effort with the aim of bridging the gap between physics and biology, uncovering novel insights into cancer biology. At the core of the Cancer Cell Destruction Project are biophysical techniques employed to comprehend the physical and chemical changes in cancer cells, as well as their cell death behaviors, crucial for detecting cancer markers. The lab utilizes advanced microscopy, spectroscopy, and computational modeling to unravel the biophysical intricacies of cancer progression. By meticulously unraveling the intricate physical principles governing the survival and proliferation of cancer cells, the lab is fervently dedicated to fostering groundbreaking advancements in targeted therapies. Through this tireless pursuit, the ultimate goal is to search the way for the early detection of cancer markers and give effective treatment techniques for patients.</p>
-
- 
-
-<p>The Biophysics Lab at the University of Yangon, under Dr. Saw Lin Oo's leadership, stands at the forefront of scientific innovation, committed to unraveling the complexities of cancer biology and translating these findings into tangible solutions for therapeutic outcomes.</p>
-
-<p>In addition, the lab is exploring other promising research areas, such as the synthesis of energy materials, bone implantation, microbial desalination cells for water purification and electricity generation, hydrogen fuel cells, and the fabrication of thermoelectric devices.</p>
-
-        
+        <p>Dr. Saw Lin Oo, leveraging his expertise in biophysics, spearheads this pioneering effort with the aim of bridging the gap between physics and biology, uncovering novel insights into cancer biology. At the core of the Cancer Cell Destruction Project are biophysical techniques employed to comprehend the physical and chemical changes in cancer cells, as well as their cell death behaviors, crucial for detecting cancer markers. The lab utilizes advanced microscopy, spectroscopy, and computational modeling to unravel the biophysical intricacies of cancer progression. By meticulously unraveling the intricate physical principles governing the survival and proliferation of cancer cells, the lab is fervently dedicated to fostering groundbreaking advancements in targeted therapies. Through this tireless pursuit, the ultimate goal is to search the way for the early detection of cancer markers and give effective treatment techniques for patients.</p>
+        <p>The Biophysics Lab at the University of Yangon, under Dr. Saw Lin Oo's leadership, stands at the forefront of scientific innovation, committed to unraveling the complexities of cancer biology and translating these findings into tangible solutions for therapeutic outcomes.</p>
+        <p>In addition, the lab is exploring other promising research areas, such as the synthesis of energy materials, bone implantation, microbial desalination cells for water purification and electricity generation, hydrogen fuel cells, and the fabrication of thermoelectric devices.</p>
       </div>
     </div>
 </section>
 <!--End Advisor Section-->
-
 <!--Start Advisor Section-->
 <section class="advisor">
   <div class="container">
@@ -33,19 +31,18 @@
     <div class="container">
       <div class="owl-carousel owl-theme">
         @forelse($advisors as $advisor)
-          <div class="item">
+        <div class="item mb-5">
           <div class="card img-card">
-            <img src="{{asset('storage/advisorimages/'.$advisor->image)}}" class="card-img-top img-top" style="width:65%!important;" alt="...">
+            <img src="{{asset('storage/advisorimages/'.$advisor->image)}}" class="card-img-top img-top" style="width:65%!important;" alt="Advisors photos of Innovative-Lab">
             <div class="card-body">
               <h5 class="card-title"><a href="{{$advisor->link}}">{{$advisor->name}}</a></h5>
               <p class="card-text">{{$advisor->role}}</p>
-              <p>Department of Physics</p>
-              <p>University of Yangon</p>
+              <p>{{$advisor->department}}</p>
+              <p>{{$advisor->university}}</p>
               <a href="{{$advisor->link}}" class="btn btn-primary">Detail Link&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
-          </div>
-      
+        </div>
         @empty
         <div class="row">
           <div class="col-12">
@@ -57,9 +54,7 @@
     </div>
 </section>
 <!--End Advisor Section-->
-
 <!--Start Principle Section-->
-
 <section class="principle">
   <h2>Principle</h2>
   @forelse($principles as $principle)
@@ -67,13 +62,10 @@
     <div class="row mt-5 p-3">
       <div class="col-sm-12 col-md-12 col-lg-4">
         <div class="d-flex justify-content-center">
-          <img src="{{asset('storage/principleimages/'.$principle->image)}}" width="420" height="450" alt="">
-
+          <img src="{{asset('storage/principleimages/'.$principle->image)}}" width="420" height="450" alt="Priciple Photo of Innovative-Lab">
         </div>
-
         <h3 class="text-center mt-4 mb-2">{{$principle->name}}</h3>
         <p class="text-center">{{$principle->position}}</p>
-
         <div class="border border-rounded border-info mt-5">
           <div class="p-4 text-center"><i class="fa-solid fa-phone me-2"></i>{{$principle->phone}}</div>
         </div>
@@ -82,12 +74,10 @@
             <a href="" style="text-decoration: none; color: black;"><i class="fa-solid fa-envelope me-2"></i>{{$principle->email}}</a>
           </div>
         </div>
-
       </div>
       <div class="col-sm-12 col-md-12 col-lg-8">
         <div class="row mb-4">
           <h4>About me</h4>
-
           <p class="mt-3" style="line-height: 1.8; word-spacing: 5px; text-align: justify;">{!!nl2br($principle->about)!!}</p>
         </div>
         <h4>Personal Information</h4>
@@ -101,7 +91,8 @@
             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 @foreach($principle->qualifications as $edu)
-                <strong><i class="fas fa-user-graduate" style="color: #25aca3;font-size:18px;"></i>&nbsp;&nbsp;&nbsp;{{$edu->description}}</strong><br><hr>
+                <strong><i class="fas fa-user-graduate" style="color: #25aca3;font-size:18px;"></i>&nbsp;&nbsp;&nbsp;{{$edu->description}}</strong><br>
+                <hr>
                 @endforeach
               </div>
             </div>
@@ -115,7 +106,8 @@
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 @foreach($principle->experimentations as $ex)
-                <strong><i class="fab fa-researchgate" style="color: #25aca3;font-size:18px;"></i>&nbsp;&nbsp;&nbsp;{{$ex->description}}</strong><br><hr>
+                <strong><i class="fab fa-researchgate" style="color: #25aca3;font-size:18px;"></i>&nbsp;&nbsp;&nbsp;{{$ex->description}}</strong><br>
+                <hr>
                 @endforeach
               </div>
             </div>
@@ -129,13 +121,12 @@
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 @foreach($principle->awards as $awd)
-                <strong><i class="fas fa-award" style="color: #25aca3;font-size:18px;"></i>&nbsp;&nbsp;&nbsp;{{$awd->description}}</strong><br><hr>
+                <strong><i class="fas fa-award" style="color: #25aca3;font-size:18px;"></i>&nbsp;&nbsp;&nbsp;{{$awd->description}}</strong><br>
+                <hr>
                 @endforeach
               </div>
             </div>
           </div>
-          
-
           @if(count($principle->associations) > 0)
           <div class="accordion-item">
             <h3 class="accordion-header" id="headingFour">
@@ -152,7 +143,6 @@
             </div>
           </div>
           @endif
-          
           @if(count($principle->services) > 0)
           <div class="accordion-item">
             <h3 class="accordion-header" id="headingFive">
@@ -198,6 +188,5 @@
   @endforelse
   <div class="mt-3" style="height: 30px;"></div>
 </section>
-
 <!--Start End Section-->
 @endsection

@@ -33,7 +33,7 @@
                         @forelse($events as $event)
                         <div class="col-lg-12">
                             <div class="card mt-5" style="width: 100%">
-                                <img src="{{asset('storage/newsimages/'.$event->image)}}" class="card-img-top" height="500" alt="...">
+                                <img src="{{asset('storage/newsimages/'.$event->image)}}" class="card-img-top" height="500" alt="Event Members of Innovative Lab">
                                 <div class="card-body">
                                     <p class="card-text"><i class="fas fa-calendar-week"></i>&nbsp;{{$event->created_at}}
                                     </p>
@@ -69,7 +69,7 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <img src="{{asset('storage/newsimages/'.$media->image)}}" width="80" height="60"
-                                                alt="popular-news">
+                                                alt="PopularNews Images of Innovative Lab">
                                         </div>
                                         <div class="col-8">
                                             <h6>{{$media->title}}</h6>

@@ -66,43 +66,61 @@
                 @enderror
             </div>
             <div class="row">
-                <div class="col-6">
-                <div class="form-group">
-                <label for="author_name"><i class="fab fa-researchgate"></i>&nbsp;AuthorName</label>
-                <div class="col-md-12">
-                    <div id="authorInputs">
-                        
-                        @foreach($publication->authors as $author)
-                        
-                        <input id="author_name[0]" type="text" class="form-control @error('author_name.*') is-invalid @enderror" name="author_name[]" required autocomplete="author_name" value="{{  $author->author_name }}"><br>
-                        @endforeach
-                            @error('author_name.*')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div>
-                    <button type="button" id="addAuthorInput" class="btn btn-success mt-3"><i class="fas fa-plus-circle"></i>&nbsp;Add AuthorName</button>
+                
+                <div class="col-md-6">
+                  <label for="author_name"><i class="fas fa-user-graduate"></i>&nbsp;AuthorName</label>
+                  <div class="col-md-12">
+                      <div id="authorInputs">
+                          @foreach($publication->authors as $key => $res)
+                          <div class="author-input mb-3">
+                              <div class="row">
+                                  <div class="col-11">
+                                      <input type="text" class="form-control @error('author_name.*') is-invalid @enderror" name="author_name[]" autocomplete="author_name" value="{{$res->author_name}}">
+                                  </div>
+                                  <div class="col-1">
+                                      @if ($key > 0)
+                                      <button type="button" class="btn btn-warning removeAuthorInput" style="border-radius: 50%;"><i class="fas fa-times"></i></button>
+                                      @endif
+                                  </div>
+                              </div>
+                          </div>
+                          @endforeach
+                          @error('author_name.*')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                          @enderror
+                      </div>
+                      <button type="button" id="addAuthorInput" class="btn btn-success"><i class="fas fa-plus-circle"></i>&nbsp;Add AuthorName</button>
+                  </div>
                 </div>
-                </div>
-                </div>
-                <div class="col-6">
-                <div class="form-group">
-                <label for="author_link"><i class="fab fa-researchgate"></i>&nbsp;AuthorLink</label>
-                <div class="col-md-12">
-                    <div id="linkInputs">
-                        @foreach($publication->authors as $author)
-                        <input id="author_link[0]" type="text" class="form-control @error('author_link.*') is-invalid @enderror" name="author_link[]" required autocomplete="author_link" value="{{$author->author_link}}"><br>
-                        @endforeach
-                            @error('author_link.*')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div>
-                    <button type="button" id="addLinkInput" class="btn btn-success mt-3"><i class="fas fa-plus-circle"></i>&nbsp;Add AuthorLink</button>
-                </div>
-                </div>
+                
+                <div class="col-md-6">
+                  <label for="author_link"><i class="fas fa-user-graduate"></i>&nbsp;AuthorLink</label>
+                  <div class="col-md-12">
+                      <div id="linkInputs">
+                          @foreach($publication->authors as $key => $res)
+                          <div class="link-input mb-3">
+                              <div class="row">
+                                  <div class="col-11">
+                                      <input type="text" class="form-control @error('author_link.*') is-invalid @enderror" name="author_link[]" autocomplete="author_link" value="{{$res->author_link}}">
+                                  </div>
+                                  <div class="col-1">
+                                      @if ($key > 0)
+                                      <button type="button" class="btn btn-warning removeLinkInput" style="border-radius: 50%;"><i class="fas fa-times"></i></button>
+                                      @endif
+                                  </div>
+                              </div>
+                          </div>
+                          @endforeach
+                          @error('author_link.*')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                          @enderror
+                      </div>
+                      <button type="button" id="addLinkInput" class="btn btn-success"><i class="fas fa-plus-circle"></i>&nbsp;Add AuthorLink</button>
+                  </div>
                 </div>
             </div>
             <div class="d-flex justify-content-center mb-5">
@@ -131,27 +149,117 @@
 
 @section('scripts')
     <script>
-        document.getElementById('addAuthorInput').addEventListener('click',function(){
-            var input = document.createElement('input');
-            input.type = 'text';
-            input.className = 'form-control';
-            input.name = 'author_name[]';
-            input.required = true;
-            input.autocomplete = 'author_name';
+        // document.getElementById('addAuthorInput').addEventListener('click',function(){
+        //     var input = document.createElement('input');
+        //     input.type = 'text';
+        //     input.className = 'form-control';
+        //     input.name = 'author_name[]';
+        //     input.required = true;
+        //     input.autocomplete = 'author_name';
 
-            document.getElementById('authorInputs').appendChild(input);
-        });
+        //     document.getElementById('authorInputs').appendChild(input);
+        // });
 
-        document.getElementById('addLinkInput').addEventListener('click',function(){
-            var input = document.createElement('input');
-            input.type = 'text';
-            input.className = 'form-control';
-            input.name = 'author_link[]';
-            input.required = true;
-            input.autocomplete = 'author_link';
+        document.getElementById('addAuthorInput').addEventListener('click', function() {
+        var inputContainer = document.getElementById('authorInputs');
+        var inputCount = inputContainer.children.length;
 
-            document.getElementById('linkInputs').appendChild(input);
-        });
+        var div = document.createElement('div');
+        div.className = 'author-input mb-3';
+
+        var row = document.createElement('div');
+        row.className = 'row';
+
+        var col1 = document.createElement('div');
+        col1.className = 'col-11';
+
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'form-control';
+        input.name = 'author_name[]';
+        input.required = true;
+        input.autocomplete = 'author_name';
+
+        col1.appendChild(input);
+
+        var col2 = document.createElement('div');
+        col2.className = 'col-1';
+
+        var removeButton = document.createElement('button');
+        removeButton.type = 'button';
+        removeButton.className = 'btn btn-warning removeAuthorInput' + (inputCount > 0 ? '' : ' d-none'); // Hide the "X" button for the first input field
+        removeButton.style.borderRadius = '50%';
+        removeButton.innerHTML = '<i class="fas fa-times"></i>';
+
+        col2.appendChild(removeButton);
+        row.appendChild(col1);
+        row.appendChild(col2);
+        div.appendChild(row);
+
+        inputContainer.appendChild(div);
+    });
+    // Event delegation for dynamically added remove buttons
+    document.getElementById('authorInputs').addEventListener('click', function(e) {
+        if (e.target.classList.contains('removeAuthorInput') || e.target.closest('.removeAuthorInput')) {
+            e.target.closest('.author-input').remove();
+        }
+    });
+
+    document.getElementById('addLinkInput').addEventListener('click', function() {
+        var inputContainer = document.getElementById('linkInputs');
+        var inputCount = inputContainer.children.length;
+
+        var div = document.createElement('div');
+        div.className = 'link-input mb-3';
+
+        var row = document.createElement('div');
+        row.className = 'row';
+
+        var col1 = document.createElement('div');
+        col1.className = 'col-11';
+
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'form-control';
+        input.name = 'author_link[]';
+        input.required = true;
+        input.autocomplete = 'author_link';
+
+        col1.appendChild(input);
+
+        var col2 = document.createElement('div');
+        col2.className = 'col-1';
+
+        var removeButton = document.createElement('button');
+        removeButton.type = 'button';
+        removeButton.className = 'btn btn-warning removeLinkInput' + (inputCount > 0 ? '' : ' d-none'); // Hide the "X" button for the first input field
+        removeButton.style.borderRadius = '50%';
+        removeButton.innerHTML = '<i class="fas fa-times"></i>';
+
+        col2.appendChild(removeButton);
+        row.appendChild(col1);
+        row.appendChild(col2);
+        div.appendChild(row);
+
+        inputContainer.appendChild(div);
+    });
+    // Event delegation for dynamically added remove buttons
+    document.getElementById('linkInputs').addEventListener('click', function(e) {
+        if (e.target.classList.contains('removeLinkInput') || e.target.closest('.removeLinkInput')) {
+            e.target.closest('.link-input').remove();
+        }
+    });
+
+        // document.getElementById('addLinkInput').addEventListener('click',function(){
+        //     var input = document.createElement('input');
+        //     input.type = 'text';
+        //     input.className = 'form-control';
+        //     input.name = 'author_link[]';
+        //     input.required = true;
+        //     input.autocomplete = 'author_link';
+
+        //     document.getElementById('linkInputs').appendChild(input);
+        // });
 
         
     </script>
