@@ -30,7 +30,7 @@
                     <th>Id</th>
                     <th>Title</th>
                     <th>Image</th>
-                    <th>Created At</th>
+                    <th>Date</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -66,7 +66,7 @@
                     "data" : "image",
                 },
                 {
-                  "data" : 'created_at'
+                  "data" : 'date'
                 },
                 {
                     "data" : "action",

@@ -50,7 +50,7 @@ class PrincipleController extends Controller
             'position' => 'required',
             'phone' => 'required',
             'email' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp',
             'about' => 'required',
         ]);
 

@@ -41,7 +41,7 @@ class AdvisorController extends Controller
             "link" => "required",
             "department" => "required",
             "university" => "required",
-            "image" => "required|image|mimes:jpeg,png,jpg,gif",
+            "image" => "required|image|mimes:jpeg,png,jpg,gif,webp",
         ]);
 
         $imagePath = $request->file('image')->store('public/advisorimages');

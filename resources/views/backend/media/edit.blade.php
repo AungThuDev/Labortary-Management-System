@@ -45,6 +45,17 @@
                   </span>
                 @enderror
             </div>
+            <div class="col-2">
+            <div class="form-group">
+              <label for="date">Date</label>
+              <input type="datetime-local" name="date" class="form-control @error('date')is-invalid @enderror" value="{{$media->date}}">
+              @error('date')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+            </div>
+          </div>
             <div class="form-group">
                 <label for="image"><i class="fas fa-images"></i>&nbsp;Cover Image</label><br>
                 <img src="{{ asset('storage/newsimages/' . $media->image) }}" alt="News Image" width="200" height="130"><br><br>

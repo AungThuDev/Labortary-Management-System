@@ -39,7 +39,7 @@ class ProjectController extends Controller
     {
         $request->validate([
             "name" => "required|string|max:255",
-            "image" => "required|image|mimes:jpeg,png,jpg,gif",
+            "image" => "required|image|mimes:jpeg,png,jpg,gif,webp",
         ]);
 
         $imagePath = $request->file('image')->store('public/projectimages');

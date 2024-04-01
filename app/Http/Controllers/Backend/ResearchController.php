@@ -44,7 +44,7 @@ class ResearchController extends Controller
         $request->validate([
             "name" => "required|string|max:255",
             "member_id" => "required",
-            "image" => "required|image|mimes:jpeg,png,jpg,gif",
+            "image" => "required|image|mimes:jpeg,png,jpg,gif,webp",
         ]);
 
         $imagePath = $request->file('image')->store('public/research');

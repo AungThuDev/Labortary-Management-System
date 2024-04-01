@@ -36,7 +36,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-12 col-lg-6">
+                                            <div class="col-sm-12 col-lg-12">
                                                 <h4 class="card-title" style="text-align: start;font-size:20px;">Education</h4>
                                                 <div style="text-align: start;margin-left:-30px;">
                                                     <ul style="list-style: none;">

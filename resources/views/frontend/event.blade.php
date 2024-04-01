@@ -33,7 +33,7 @@
                             <img src="{{asset('storage/newsimages/'.$event->image)}}" class="card-img-top" height="100%" alt="Event Photos of Innovative Lab">
                             
                             <div class="card-body">
-                                <p class="card-text"><i class="fas fa-calendar-week"></i>&nbsp;{{$event->created_at}}
+                                <p class="card-text"><i class="fas fa-calendar-week"></i>&nbsp;{{ \Carbon\Carbon::parse($event->date)->format('l-M-Y')}}
                                 </p>
                                 <h5 class="card-title">{{$event->title}}</h5>
                                 <p class="card-text">

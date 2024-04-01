@@ -45,6 +45,17 @@
           </span>
           @enderror
         </div>
+        <div class="col-2">
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="datetime-local" name="date" class="form-control @error('date')is-invalid @enderror">
+            @error('date')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+        </div>
         <div class="form-group">
           <label for="image"><i class="fas fa-images"></i>&nbsp;Cover Image</label><br>
           <input type="file" name="image" id="image" class="" value="{{old('image')}}">
@@ -84,58 +95,6 @@
 </div>
 <!-- /.content-wrapper -->
 @endsection
-
-{{-- @section('scripts')
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.addImageInput').addEventListener('click', function() {
-      var inputContainer = document.getElementById('imageInputs');
-
-      var inputCount = inputContainer.children.length;
-
-      var row = document.createElement('div');
-      row.className = 'row image-row';
-
-      var col1 = document.createElement('div');
-      col1.className = 'col-11';
-
-      var input = document.createElement('input');
-      input.type = 'file';
-      input.className = 'mt-3';
-      input.name = 'photos[]';
-      input.required = true;
-      input.autocomplete = 'photos';
-
-      col1.appendChild(input);
-
-      var col2 = document.createElement('div');
-      col2.className = 'col-1';
-
-      if (inputCount > 0) {
-          var removeButton = document.createElement('button');
-          removeButton.type = 'button';
-          removeButton.className = 'btn btn-warning removeImageInput';
-          removeButton.style.borderRadius = '50%';
-          removeButton.innerHTML = '<i class="fas fa-times"></i>';
-          col2.appendChild(removeButton);
-      }
-
-      row.appendChild(col1);
-      row.appendChild(col2);
-
-      inputContainer.appendChild(row);
-  });
-
-  // Event delegation for dynamically added remove buttons
-  document.getElementById('imageInputs').addEventListener('click', function(e) {
-      console.log(e);
-      if (e.target.classList.contains('removeImageInput') || e.target.closest('.removeImageInput')) {
-          e.target.closest('.image-row').remove();
-      }
-  });
-});
-</script>
-@endsection --}}
 
 @section('scripts')
 <script>

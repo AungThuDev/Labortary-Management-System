@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Media extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','description','image'];
+    protected $fillable = ['title','description','date','image'];
 
     public function images(){
         return $this->hasMany(Image::class);

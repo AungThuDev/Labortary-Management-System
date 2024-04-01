@@ -49,7 +49,7 @@ class SubjectController extends Controller
             "web_page" => "required",
             "instructor_office" => "required",
             "office_hour" => "required",
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp',
         ]);
         $imagePath = $request->file('image')->store('public/subjectimages');
         $imageName = basename($imagePath);

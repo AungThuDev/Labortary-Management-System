@@ -55,7 +55,6 @@ class PublicationController extends Controller
             'name_link' => 'required',
             'journal' => 'required',
             'journal_link' => 'required',
-            
             'author_name' => 'required|array',
             'author_name.*' => 'required|string',  
             'author_link' => 'required|array',

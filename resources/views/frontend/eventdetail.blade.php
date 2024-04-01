@@ -26,7 +26,7 @@
                             
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
-                                    <p class="card-text"><i class="fas fa-calendar-week"></i>&nbsp;{{$event->created_at->diffForHumans()}}
+                                    <p class="card-text"><i class="fas fa-calendar-week"></i>&nbsp;{{ \Carbon\Carbon::parse($event->date)->diffForHumans()}}
                                     
                                 </div>
                                 </p>
@@ -64,7 +64,7 @@
                                     </div>
                                     <div class="col-8">
                                         <h6>{{$media->title}}</h6>
-                                        <p class="card-text" style="font-size: 11px;"><i class="fas fa-calendar-week"></i>&nbsp;{{$media->created_at->diffForHumans()}}
+                                        <p class="card-text" style="font-size: 11px;"><i class="fas fa-calendar-week"></i>&nbsp;{{\Carbon\Carbon::parse($event->date)->diffForHumans()}}
                                         </p>
                                     </div>
                                 </div>

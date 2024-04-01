@@ -21,8 +21,8 @@ class MediaController extends Controller
                 
                     return '<img src="'.asset("storage/newsimages/" . $each->image).'" class="img-thumbnail" width="100" height="100"/>';
                 
-            })->editColumn('created_at',function($each){
-                return Carbon::parse($each->created_at)->format('l-M-Y');
+            })->editColumn('date',function($each){
+                return Carbon::parse($each->date)->format('Y-m-d');
             })
             
             ->addColumn('action',function($each){
@@ -46,7 +46,8 @@ class MediaController extends Controller
     $request->validate([
         'title' => 'required',
         'description' => 'required',
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif',
+        'date' => 'required|date',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp',
         'images.*' => 'required|image', // Validation for each image in the array
     ]);
 
@@ -56,6 +57,7 @@ class MediaController extends Controller
     $media = Media::create([
         'title' => $request['title'],
         'description' => $request['description'],
+        'date' => $request['date'],
         'image' => $imageName,
     ]);
 
@@ -87,15 +89,16 @@ class MediaController extends Controller
         return view('backend.media.edit',compact('media'));
     }
     public function update(Request $request,$id)
-    {
-        
+    { 
         $media = Media::findOrFail($id);
         $request->validate([
             "title" => "required",
             "description" => "required",
+            "date" => "required|date",
         ]);
         $media->title = $request->title;
         $media->description = $request->description;
+        $media->date = $request->date;
         if($request->file('image')){
             if($media->image){
                 Storage::delete('public/newsimages/'.$media->image);
@@ -115,7 +118,7 @@ class MediaController extends Controller
                 ]);
             }
         }
-        $imagesArray = $request->except('title', 'description', 'image', '_token', '_method','images','deleted_images');
+        $imagesArray = $request->except('title', 'description','date', 'image', '_token', '_method','images','deleted_images');
         //dd($imagesArray);
 
         if (count($imagesArray)>0) {

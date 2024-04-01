@@ -34,7 +34,15 @@
               @endforeach
             </div>
             <div class="card-body">
-                <h3 class="card-title">{{$media->title}}</h3>
+              <div class="row">
+                <div class="col-6">
+                  <h3 class="card-title">{{$media->title}}</h3>
+                </div>
+                <div class="col-6">
+                  <h6 style="float:right">{{ \Carbon\Carbon::parse($media->date)->format('l-M-Y')}}</h6>
+                </div>
+              </div>
+                
                 <p class="card-text">{!!nl2br($media->description)!!}</p>
                 <a href="{{route('admin.news.edit',$media->id)}}" class="btn btn-outline-success"><i class="far fa-edit"></i>&nbsp;Edit News</a>
             </div>

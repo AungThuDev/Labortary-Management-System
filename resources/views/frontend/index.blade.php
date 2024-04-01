@@ -138,6 +138,7 @@
               <div class="accordion-body">
                 @foreach($principle->associations as $asso)
                 <strong><i class="fas fa-sitemap" style="color: #25aca3;font-size:18px;"></i>&nbsp;&nbsp;&nbsp;{{$asso->description}}</strong><br>
+                <hr>
                 @endforeach
               </div>
             </div>

@@ -65,7 +65,7 @@ class MemberController extends Controller
             'facebook' => 'required',
             'instagram' => 'required',
             'twitter' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp',
         ]);
 
 
